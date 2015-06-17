@@ -6,4 +6,5 @@ applications:
   host: dsoncf
   domain: cfapps.io
   path: .
-  command: .conda/bin/python main.py
+  buildpack: https://github.com/ihuston/python-conda-buildpack.git
+  command: python main.py
