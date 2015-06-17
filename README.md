@@ -4,6 +4,14 @@ Author: Alexander Kagoshima
 
 This app demonstrates a very simple API that can be used to create model instances, feed data to them and let these models retrain periodically. Currently, it uses redis to store model instances, model state and data as well - for scalability and distributed processing of data this should be replaced by a distributed data storage.
 
+Requirements: A Redis CF service instance with the name `rediscloud`.
+
+Host names in a Cloud Foundry installation need to be globally unique.
+In order to push your own version of this application to Pivotal Web Services
+please change the host name in `manifest.yml`
+or specify on the command line using `cf push -n myhostname`.
+
+
 For all the tests below replace ```http://<model_domain>``` with your Cloud Foundry app domain.
 
 
@@ -53,7 +61,9 @@ Look at all created models
 
 There's a very rudimentary view on the redis set of all models that have been created:
 
-```http://<model_domain>/models/```
+```
+http://<model_domain>/models/
+```
 
 
 Look at model details
@@ -61,7 +71,9 @@ Look at model details
 
 This lets you check out the status of the previously created model as well as its trained parameters:
 
-```http://<model_domain>/models/model1```
+```
+http://<model_domain>/models/model1
+```
 
 
 Todo
